@@ -3,11 +3,11 @@ import Navbar from './navbar'
 import Footer from './footer'
 
 const navigation = [
-  { name: 'Devices', href: '#' },
+  { name: 'Devices', href: '/devices' },
   { name: 'Blog', href: '#' },
   { name: 'About', href: '/about' },
   { name: 'Stats', href: '/stats' },
-  { name: 'Donate', href: '#' },
+  { name: 'Donate', href: 'https://paypal.me/ishubhamsingh' },
 ]
 const social = [
   {
