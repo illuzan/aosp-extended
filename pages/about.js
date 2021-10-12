@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 
 const team = [
   {
@@ -148,7 +149,8 @@ export default function About() {
           <div className='transition-colors border-2 shadow-md md:rounded-md bg-aex-300 border-aex-300 hover:border-aex-accent ' key={feature.name} >
             <div className='flex items-center justify-start p-4 space-x-2'>
               <div className=''>
-                <img class='w-10 h-10 rounded-full' src={`${feature.github}.png`} alt="" />
+                <Image class='rounded-full' src={`${feature.github}.png`} alt="User profile picture" width={40}
+                  height={40} />
               </div>
               <div>
                 <h1 className='font-medium text-gray-100'>{feature.name}</h1>

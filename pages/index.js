@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Features from '../components/features'
 import Screenshot from '../components/screenshot'
 
@@ -80,7 +81,7 @@ export default function Home() {
   return (
     <>
       <main className="px-4 mx-auto mt-16 max-w-7xl sm:mt-24">
-        <img src="/logo.svg" className="mx-auto h-80" />
+        <img src="/logo.svg" className="mx-auto h-80" alt='AospExtended Logo' />
         <div className="text-center">
           {/* <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl md:text-6xl">
             <span className="block xl:inline">Hello</span>{' '}

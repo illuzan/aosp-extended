@@ -9,11 +9,12 @@ export default function Navbar({ navigation }) {
     <Popover className="relative" >
       <nav className="flex justify-between pt-6 pb-16 sm:pb-24 ">
         {/* logo left side */}
-        <a href="#">
-          <span className="sr-only">Aosp Extended</span>
-          <img src="/group.svg" className="h-7 sm:h-8" />
-        </a>
-
+        <Link href="/">
+          <a >
+            <span className="sr-only">Aosp Extended</span>
+            <img src="/group.svg" className="h-7 sm:h-8" alt='AospExtended Logo' />
+          </a>
+        </Link>
         {/* Links right side */}
         <div className="hidden space-x-6 md:block">
           {navigation.map((item) => (
@@ -44,7 +45,7 @@ export default function Navbar({ navigation }) {
               <div className="flex items-center justify-between px-5 pt-4">
                 <a href="#">
                   <span className="sr-only">Aosp Extended</span>
-                  <img src="/group.svg" className="h-7 sm:h-8" />
+                  <img src="/group.svg" className="h-7 sm:h-8" alt='AospExtended Logo' />
                 </a>
                 <div className="-mr-2">
                   <Popover.Button className="inline-flex items-center justify-center p-2 text-gray-400 rounded-md md:hidden bg-aex-300 hover:bg-aex-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-aex-accent">
