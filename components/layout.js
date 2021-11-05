@@ -4,7 +4,7 @@ import Footer from './footer'
 
 const navigation = [
   { name: 'Devices', href: '/devices' },
-  { name: 'Blog', href: '#' },
+  { name: 'Blog', href: '/blog' },
   { name: 'About', href: '/about' },
   { name: 'Stats', href: '/stats' },
   { name: 'Donate', href: 'https://paypal.me/ishubhamsingh' },
