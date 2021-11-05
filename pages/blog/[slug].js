@@ -21,8 +21,8 @@ export default function Post({ code, frontmatter }) {
       />
       <Adsense
         className='mb-6 border-8 rounded'
-        client='ca-pub-9305737609645356'
-        slot='5385439921'
+        client='ca-pub-5289211378270082'
+        slot='2125885795'
         style={{ display: 'block' }}
         layout='in-article'
         format='fluid'
@@ -74,8 +74,8 @@ export default function Post({ code, frontmatter }) {
       </div>
       <Adsense
         className='my-6 border-8 rounded'
-        client='ca-pub-9305737609645356'
-        slot='5385439921'
+        client='ca-pub-5289211378270082'
+        slot='2125885795'
         style={{ display: 'block' }}
         format='auto'
         responsive='true'
