@@ -16,16 +16,17 @@ export default function Post({ code, frontmatter }) {
     <div className=''>
       {/* Google adsense script */}
       <Script
-        src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'
+        src='src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5289211378270082"
+     crossorigin="anonymous"'
         strategy='beforeInteractive'
       />
       <Adsense
-        className='mb-6 border-8 rounded'
+        className='mb-6 border-8 rounded adsbygoogle'
         client='ca-pub-5289211378270082'
-        slot='2125885795'
+        slot='2672680700'
         style={{ display: 'block' }}
-        layout='in-article'
-        format='fluid'
+        format='auto'
+        responsive='true'
       />
       <div className='px-6 py-6 mb-4 rounded-md shadow-2xl bg-gradient-to-t from-[#30eeb7] to-[#31ee95] text-gray-800 '>
         <h1 className='mb-4 text-4xl font-bold'>{frontmatter.title}</h1>
