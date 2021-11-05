@@ -16,8 +16,7 @@ export default function Post({ code, frontmatter }) {
     <div className=''>
       {/* Google adsense script */}
       <Script
-        src='src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5289211378270082"
-     crossorigin="anonymous"'
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5289211378270082"
         strategy='beforeInteractive'
       />
       <Adsense
