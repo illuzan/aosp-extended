@@ -20,13 +20,12 @@ export default function Post({ code, frontmatter }) {
         strategy='beforeInteractive'
       />
       <Adsense
+        className='mb-6 border-8 rounded'
         client='ca-pub-9305737609645356'
         slot='5385439921'
         style={{ display: 'block' }}
         layout='in-article'
         format='fluid'
-        data-adtest='on'
-        google_adtest='on'
       />
       <div className='px-6 py-6 mb-4 rounded-md shadow-2xl bg-gradient-to-t from-[#30eeb7] to-[#31ee95] text-gray-800 '>
         <h1 className='mb-4 text-4xl font-bold'>{frontmatter.title}</h1>
@@ -71,7 +70,17 @@ export default function Post({ code, frontmatter }) {
         <div className='p-6 prose text-white lg:pr-10 max-w-none'>
           <Component />
         </div>
+
       </div>
+      <Adsense
+        className='my-6 border-8 rounded'
+        client='ca-pub-9305737609645356'
+        slot='5385439921'
+        style={{ display: 'block' }}
+        format='auto'
+        responsive='true'
+        layoutKey='-gw-1+2a-9x+5c'
+      />
     </div>
   )
 }
