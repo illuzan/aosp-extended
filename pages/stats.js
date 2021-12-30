@@ -10,27 +10,31 @@ export default function Stats({ stats }) {
       </h1>
       <div className='mb-6 space-y-6 lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-4'>
         <div className='flex justify-between p-4 rounded bg-aex-accent'>
-          <svg fill="currentColor" viewBox="0 0 256 256" className='w-12 h-12 text-gray-900'>
-            <path fill="none" d="M0 0h256v256H0z"></path>
+          <svg
+            fill='currentColor'
+            viewBox='0 0 256 256'
+            className='w-12 h-12 text-gray-900'
+          >
+            <path fill='none' d='M0 0h256v256H0z'></path>
             <rect
-              width="128"
-              height="208"
-              x="64"
-              y="24"
-              fill="none"
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="16"
-              rx="16"
+              width='128'
+              height='208'
+              x='64'
+              y='24'
+              fill='none'
+              stroke='currentColor'
+              strokeLinecap='round'
+              strokeLinejoin='round'
+              strokeWidth='16'
+              rx='16'
             ></rect>
             <path
-              fill="none"
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="16"
-              d="M64 56h128M64 200h128"
+              fill='none'
+              stroke='currentColor'
+              strokeLinecap='round'
+              strokeLinejoin='round'
+              strokeWidth='16'
+              d='M64 56h128M64 200h128'
             ></path>
           </svg>
           <div className='flex flex-col text-right'>
@@ -41,25 +45,29 @@ export default function Stats({ stats }) {
           </div>
         </div>
         <div className='flex justify-between p-4 rounded justify-items-center bg-aex-accent'>
-          <svg fill="currentColor" viewBox="0 0 256 256" className='w-12 h-12 text-gray-900'>
-            <path fill="none" d="M0 0h256v256H0z"></path>
+          <svg
+            fill='currentColor'
+            viewBox='0 0 256 256'
+            className='w-12 h-12 text-gray-900'
+          >
+            <path fill='none' d='M0 0h256v256H0z'></path>
             <path
-              fill="none"
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="16"
-              d="M176 128h48a8 8 0 018 8v64a8 8 0 01-8 8H32a8 8 0 01-8-8v-64a8 8 0 018-8h48m48-104v104"
+              fill='none'
+              stroke='currentColor'
+              strokeLinecap='round'
+              strokeLinejoin='round'
+              strokeWidth='16'
+              d='M176 128h48a8 8 0 018 8v64a8 8 0 01-8 8H32a8 8 0 01-8-8v-64a8 8 0 018-8h48m48-104v104'
             ></path>
             <path
-              fill="none"
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="16"
-              d="M80 80l48 48 48-48"
+              fill='none'
+              stroke='currentColor'
+              strokeLinecap='round'
+              strokeLinejoin='round'
+              strokeWidth='16'
+              d='M80 80l48 48 48-48'
             ></path>
-            <circle cx="188" cy="168" r="12"></circle>
+            <circle cx='188' cy='168' r='12'></circle>
           </svg>
           <div className='flex flex-col text-right'>
             <p className='text-sm'>Total Downloads</p>
@@ -104,7 +112,7 @@ export default function Stats({ stats }) {
                     <td className='px-6 py-4 text-sm font-medium whitespace-nowrap'>
                       {deviceIdx + 1}
                     </td>
-                    <td className='px-6 py-4 text-sm text-aex-accent whitespace-nowrap'>
+                    <td className='px-6 py-4 text-sm text-aex-accent '>
                       <Link href={`/stats/${device.name}`}>
                         <a>{`${device.model} (${device.name})`}</a>
                       </Link>
@@ -148,11 +156,11 @@ export default function Stats({ stats }) {
               </thead>
               <tbody className=' divide-y divide-aex-400 bg-[#332e4e]'>
                 {stats.countryCountList.map((country, countryIdx) => (
-                  <tr key={country.name}>
+                  <tr key={countryIdx}>
                     <td className='px-6 py-4 text-sm font-medium whitespace-nowrap'>
                       {countryIdx + 1}
                     </td>
-                    <td className='px-6 py-4 text-sm font-medium whitespace-nowrap'>
+                    <td className='px-6 py-4 text-sm font-medium '>
                       {country.name}
                     </td>
                     <td className='px-6 py-4 text-sm whitespace-nowrap'>
