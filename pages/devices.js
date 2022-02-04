@@ -4,25 +4,83 @@ import { SelectorIcon, ChevronUpIcon } from '@heroicons/react/outline'
 import Builds from '../components/Builds'
 import { useRouter } from 'next/router'
 
-function getBrands(data) {
-  let set = new Set()
-  data.map((device) => {
-    set.add(device.brand)
-  })
-  return [...set]
-}
+// function getBrands(data) {
+//   let set = new Set()
+//   data.map((device) => {
+//     set.add(device.brand)
+//   })
+//   return [...set]
+// }
 
+// const foo = params.get('bar');
 
-export default function Devices({
-  allSupportedBrand,
-  allSupportedDevice,
-  initalDevices,
-}) {
+export default function Devices() {
+  //   {
+  //   allSupportedBrand,
+  //   allSupportedDevice,
+  //   initalDevices,
+  // }
+  const [allSupportedBrand, setAllSupportedBrand] = useState(null)
+  const [allSupportedDevice, setAllSupportedDevice] = useState(null)
+  const [brandSpecificDevice, setBrandSpecificDevice] = useState(null)
+  const [selectedBrand, setSelectedBrand] = useState(null)
+  // const [data, setData] = useState(null)
+  const [isLoading, setLoading] = useState(true)
+
   const router = useRouter()
-  // const devicesQuery = filterDevices()
-  const [brandSpecificDevice, setBrandSpecificDevice] = useState(initalDevices)
-  const [selectedBrand, setSelectedBrand] = useState(allSupportedBrand[0])
-  // console.log(router.query)
+
+  useEffect(() => {
+    if (process.browser) {
+      console.log(router.query)
+      const { codename, version, build } = router.query
+      async function getDirectBuild() {
+        const response = await fetch(
+          `https://api.aospextended.com/builds/${codename}/${version}`
+        )
+        console.log(response)
+      }
+      getDirectBuild()
+    }
+
+
+
+
+
+
+
+
+
+
+    // if (process.browser) {
+    //   const { codename, version, build } = router.query
+    //   console.log(true)
+    // }
+    // const search = window.location.search;
+    // const params = new URLSearchParams(search);
+    // console.log(params)
+    // console.log(router.query)
+  }, [])
+
+  useEffect(() => {
+    async function getData() {
+      setLoading(true)
+      const response = await fetch(`https://api.aospextended.com/devices`)
+      const data = await response.json()
+      const test = getBrands(data)
+      setAllSupportedDevice(data)
+      setAllSupportedBrand(test)
+      const initalDevices = data.filter(
+        (device) => device.brand === test[0]
+      )
+      setBrandSpecificDevice(initalDevices)
+      // console.log(router.isReady)
+      setLoading(false)
+    }
+    // console.log(router.isReady)
+    getData()
+  }, [])
+
+
 
   function filterDevices(brandName) {
     const filteredList = allSupportedDevice.filter(
@@ -31,15 +89,17 @@ export default function Devices({
     setSelectedBrand(brandName)
     setBrandSpecificDevice(filteredList)
   }
-  useEffect(() => {
-    console.log(router.query)
-    if (router.query.codeName) {
-      console.log('dssdaf')
-    }
-    // return () => {
-    //   cleanup
-    // }
-  }, [])
+
+  function getBrands(data) {
+    let set = new Set()
+    data.map((device) => {
+      set.add(device.brand)
+    })
+    return [...set]
+  }
+
+  if (isLoading) return <p>Loading...</p>
+
   return (
     <div className='grid grid-cols-5'>
       {/* Brand Button */}
@@ -123,8 +183,10 @@ export default function Devices({
                         </p>
                       ))}
                     </div>
-                    <ChevronUpIcon className={`${open ? 'transform rotate-180' : ''
-                      } w-5 h-5 text-white`} />
+                    <ChevronUpIcon
+                      className={`${open ? 'transform rotate-180' : ''
+                        } w-5 h-5 text-white`}
+                    />
                   </div>
                 </Disclosure.Button>
                 <Transition
@@ -136,7 +198,7 @@ export default function Devices({
                   leaveTo='transform scale-95 opacity-0'
                 >
                   <Disclosure.Panel className='w-full px-4 pt-4 pb-2 text-sm '>
-                    <div className='space-y-2 bg-aex-400 ' >
+                    <div className='space-y-2 bg-aex-400 '>
                       {device.supported_versions.map((supportedVersion) => (
                         <Builds
                           deviceBuilds={supportedVersion}
@@ -157,15 +219,15 @@ export default function Devices({
   )
 }
 
-export async function getStaticProps() {
-  const response = await fetch(`https://api.aospextended.com/devices`)
-  const allSupportedDevice = await response.json()
-  const allSupportedBrand = getBrands(allSupportedDevice)
-  const initalDevices = allSupportedDevice.filter(
-    (device) => device.brand === allSupportedBrand[0]
-  )
+// export async function getStaticProps() {
+//   const response = await fetch(`https://api.aospextended.com/devices`)
+//   const allSupportedDevice = await response.json()
+//   const allSupportedBrand = getBrands(allSupportedDevice)
+//   const initalDevices = allSupportedDevice.filter(
+//     (device) => device.brand === allSupportedBrand[0]
+//   )
 
-  return {
-    props: { allSupportedBrand, allSupportedDevice, initalDevices },
-  }
-}
+//   return {
+//     props: { allSupportedBrand, allSupportedDevice, initalDevices },
+//   }
+// }

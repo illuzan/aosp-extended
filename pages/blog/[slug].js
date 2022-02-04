@@ -1,5 +1,4 @@
 import React, { useMemo } from 'react'
-import Script from 'next/script'
 import { getMDXComponent } from 'mdx-bundler/client'
 import { getAllPosts, getSinglePost } from '../../utils/mdx'
 import { Adsense } from '@ctrl/react-adsense'
@@ -14,11 +13,7 @@ export default function Post({ code, frontmatter }) {
   ]
   return (
     <div className=''>
-      {/* Google adsense script */}
-      <Script
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5289211378270082"
-        strategy='beforeInteractive'
-      />
+
       <Adsense
         className='mb-6 border-8 rounded adsbygoogle'
         client='ca-pub-5289211378270082'
