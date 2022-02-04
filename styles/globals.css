@@ -23,6 +23,26 @@
     src: url('/fonts/Inter-Italic.woff2') format('woff2');
   }
 
+  /* width */
+  ::-webkit-scrollbar {
+    width: 16px;
+    height: 16px;
+  }
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #110f19;
+  }
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #322d53;
+    /* border-radius: 100vh; */
+    border: 2px solid #31ee91;
+  }
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #a0aec0;
+  }
+
   :root {
     --swiper-pagination-color: #31ee91;
     --swiper-pagination-bullet-inactive-color: #f5f5f5;
