@@ -57,6 +57,59 @@ function TelegramIcon(props) {
   )
 }
 
+function DeviceIcon(props) {
+  return (
+    <svg fill='currentColor' viewBox='0 0 256 256' {...props}>
+      <path fill='none' d='M0 0h256v256H0z'></path>
+      <rect
+        width='128'
+        height='208'
+        x='64'
+        y='24'
+        fill='none'
+        stroke='currentColor'
+        strokeLinecap='round'
+        strokeLinejoin='round'
+        strokeWidth='16'
+        rx='16'
+      ></rect>
+      <path
+        fill='none'
+        stroke='currentColor'
+        strokeLinecap='round'
+        strokeLinejoin='round'
+        strokeWidth='16'
+        d='M64 56h128M64 200h128'
+      ></path>
+    </svg>
+  )
+}
+
+function DownloadIcon(props) {
+  return (
+    <svg fill='currentColor' viewBox='0 0 256 256' {...props}>
+      <path fill='none' d='M0 0h256v256H0z'></path>
+      <path
+        fill='none'
+        stroke='currentColor'
+        strokeLinecap='round'
+        strokeLinejoin='round'
+        strokeWidth='16'
+        d='M176 128h48a8 8 0 018 8v64a8 8 0 01-8 8H32a8 8 0 01-8-8v-64a8 8 0 018-8h48m48-104v104'
+      ></path>
+      <path
+        fill='none'
+        stroke='currentColor'
+        strokeLinecap='round'
+        strokeLinejoin='round'
+        strokeWidth='16'
+        d='M80 80l48 48 48-48'
+      ></path>
+      <circle cx='188' cy='168' r='12'></circle>
+    </svg>
+  )
+}
+
 export {
   FileZipIcon,
   FileSizeIcon,
@@ -65,4 +118,6 @@ export {
   GitHubIcon,
   XDAIcon,
   TelegramIcon,
+  DeviceIcon,
+  DownloadIcon,
 }

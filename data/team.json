@@ -1,0 +1,94 @@
+{
+  "leads": [
+    {
+      "name": "Shubham Singh",
+      "description": "Founder & Lead developer",
+      "bio": "A proud Indian | A Mistake Maker | A Learner | A Tech-Enthusiast",
+      "github": "https://github.com/ishubhamsingh",
+      "xda": "https://forum.xda-developers.com/member.php?u=5566914",
+      "telegram": "https://t.me/ishubhamsingh"
+    },
+    {
+      "name": "Amol Amrit",
+      "description": "Moderator & Developer",
+      "bio": "A guy with lots of hobbies | Nightwing | UnnamedDream",
+      "github": "https://github.com/amolamrit",
+      "xda": "https://forum.xda-developers.com/member.php?u=5615686",
+      "telegram": "https://t.me/amolamrit"
+    },
+    {
+      "name": "Aman Kumar",
+      "description": "SysAdmin",
+      "bio": "| 16 | M | Android Developer | RD |",
+      "github": "https://github.com/firelord",
+      "xda": "https://forum.xda-developers.com/member.php?u=6257538",
+      "telegram": "https://t.me/firelord1"
+    },
+    {
+      "name": "Arghya Chanda",
+      "description": "Moderator & Developer",
+      "bio": "AEX for Whyred | A Tech-Connoisseur",
+      "github": "https://github.com/arghyac35",
+      "xda": "https://forum.xda-developers.com/member.php?u=8037603",
+      "telegram": "https://t.me/arghyac35"
+    }
+  ],
+  "contributors": [
+    {
+      "name": "Shubham Bhise",
+      "description": "Realme 2 Pro (RMX1801/RMX1807)  Maintainer",
+      "bio": "24 | Indian | Android enthusiast | Foodie",
+      "github": "https://github.com/sb6596",
+      "xda": "https://forum.xda-developers.com/member.php?u=7666467",
+      "telegram": "https://t.me/sb6596"
+    },
+    {
+      "name": "Sagar Makhar",
+      "description": "Realme X (RMX1901) & ASUS Zenfone Max Pro M1 (X00TD) Maintainer",
+      "bio": "",
+      "github": "https://github.com/SagarMakhar",
+      "xda": "https://forum.xda-developers.com/member.php?u=6268432",
+      "telegram": "https://t.me/sagarmakhar"
+    },
+    {
+      "name": "ShivaTeja Peddi",
+      "description": "POCO F1 (beryllium) Maintainer",
+      "bio": "",
+      "github": "https://github.com/ShivaTejapeddi",
+      "xda": "https://forum.xda-developers.com/member.php?u=7638319",
+      "telegram": "https://t.me/peddishivateja"
+    },
+    {
+      "name": "Davide Della Maddalena",
+      "description": "Zuk Z2 Manteiner",
+      "bio": "Android enthusiast | Vintage audio lover | Industrial Technical",
+      "github": "https://github.com/davidevinavil",
+      "xda": "https://forum.xda-developers.com/member.php?u=2823824",
+      "telegram": "https://t.me/dmd79"
+    },
+    {
+      "name": "Abdul Sakil Mondal",
+      "description": "Redmi Note 5 Pro (whyred) Maintainer",
+      "bio": "Android Lover | Learner | Indian | Civil Engineer | Part Time Developer",
+      "github": "https://github.com/SakilMondal",
+      "xda": "https://forum.xda-developers.com/member.php?u=6151980",
+      "telegram": "https://t.me/SakilMondal"
+    },
+    {
+      "name": "Sairam Majgaonkar",
+      "description": "Xiaomi Redmi 3s (land) Maintainer",
+      "bio": "Android Enthusiastic | Beginner | Part time developer | full time student",
+      "github": "https://github.com/sairam1411",
+      "xda": "https://forum.xda-developers.com/member.php?u=7111945",
+      "telegram": "https://t.me/Sairam60"
+    },
+    {
+      "name": "iKeramat",
+      "description": "Xiaomi Mi 5 (gemini) Maintainer",
+      "bio": "A curious boy who just wants to learn",
+      "github": "https://github.com/iKeramat",
+      "xda": "https://forum.xda-developers.com/member.php?u=6540480",
+      "telegram": "https://t.me/iKeramat"
+    }
+  ]
+}
