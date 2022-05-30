@@ -3,7 +3,10 @@ import Image from 'next/image'
 import { team, contributors } from '../data/team'
 import { GitHubIcon, XDAIcon, TelegramIcon } from '../utils/icons'
 
-const links = [
+const links: {
+  name: string
+  icon: (props: any) => JSX.Element
+}[] = [
   {
     name: 'GitHub',
     icon: (props) => (
@@ -43,9 +46,6 @@ const links = [
 ]
 
 export default function About() {
-  // const GitHubIcon = links[0].icon
-  // const XDAIcon = links[1].icon
-  // const TelegramIcon = links[2].icon
   const teamList = [...team, ...contributors]
   return (
     <div>
@@ -68,7 +68,7 @@ export default function About() {
             <div className='flex items-center justify-start p-4 space-x-2'>
               <div className=''>
                 <Image
-                  class='rounded-full'
+                  className='rounded-full'
                   src={`${feature.github}.png`}
                   alt='User profile picture'
                   width={40}
@@ -90,7 +90,10 @@ export default function About() {
                   className='text-gray-100 hover:text-aex-accent'
                 >
                   <span className='sr-only'>{links[0].name}</span>
-                  <GitHubIcon className='w-6 h-6 fill-gray-100 hover:fill-aex-accent' aria-hidden='true' />
+                  <GitHubIcon
+                    className='w-6 h-6 fill-gray-100 hover:fill-aex-accent'
+                    aria-hidden='true'
+                  />
                 </a>
               ) : null}
               {feature.xda ? (
@@ -99,7 +102,10 @@ export default function About() {
                   className='text-gray-100 hover:text-aex-accent'
                 >
                   <span className='sr-only'>{links[1].name}</span>
-                  <XDAIcon className='w-6 h-6 fill-gray-100 hover:fill-aex-accent' aria-hidden='true' />
+                  <XDAIcon
+                    className='w-6 h-6 fill-gray-100 hover:fill-aex-accent'
+                    aria-hidden='true'
+                  />
                 </a>
               ) : null}
               {feature.telegram ? (
@@ -108,7 +114,10 @@ export default function About() {
                   className='text-gray-100 hover:text-aex-accent'
                 >
                   <span className='sr-only'>{links[2].name}</span>
-                  <TelegramIcon className='w-6 h-6 fill-gray-100 hover:fill-aex-accent ' aria-hidden='true' />
+                  <TelegramIcon
+                    className='w-6 h-6 fill-gray-100 hover:fill-aex-accent '
+                    aria-hidden='true'
+                  />
                 </a>
               ) : null}
             </div>

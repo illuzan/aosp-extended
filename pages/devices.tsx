@@ -5,25 +5,37 @@ import BrandList from '../components/BrandList'
 import DownloadBuild from '../components/DownloadBuild'
 import { ChevronUpIcon } from '@heroicons/react/outline'
 import { Disclosure, Transition } from '@headlessui/react'
+import { BuildDetails, SupportedDevices } from '../utils/types'
+import { GetStaticProps } from 'next'
+
+type Props = {
+  allSupportedDevices: SupportedDevices
+  allSupportedBrands: string[]
+  initalDevices: SupportedDevices
+}
 
 export default function Devices({
   allSupportedDevices,
   allSupportedBrands,
   initalDevices,
-}) {
+}: Props) {
   const router = useRouter()
   const [brandSpecificDevice, setBrandSpecificDevice] = useState(initalDevices)
   const [selectedBrand, setSelectedBrand] = useState(allSupportedBrands[0])
-  const [buildDetails, setBuildDetails] = useState(null)
+  const [buildDetails, setBuildDetails] = useState<any>(null)
   const [openModal, setOpenModal] = useState(false)
 
-  async function getBuildFromQuery(codename, version, build) {
+  async function getBuildFromQuery(
+    codename: string | string[],
+    version: string | string[],
+    build: string | string[]
+  ) {
     const response = await fetch(
       `https://api.aospextended.com/builds/${codename}/${version}`
     )
-    const buildLists = await response.json()
-    const filteredBuild = buildLists.filter(
-      (buildList) => buildList.file_name === build
+    const buildDetails: BuildDetails = await response.json()
+    const filteredBuild = buildDetails.filter(
+      (buildItem) => buildItem.file_name === build
     )
     if (filteredBuild[0]) {
       setBuildDetails(filteredBuild[0])
@@ -31,7 +43,7 @@ export default function Devices({
     }
   }
 
-  function filterDevices(brandName) {
+  function filterDevices(brandName: string) {
     const filteredList = allSupportedDevices.filter(
       (device) => device.brand === brandName
     )
@@ -43,7 +55,6 @@ export default function Devices({
     if (router.isReady) {
       const { codename, version, build } = router.query
       if (!codename || !version || !build) {
-        return null
       } else {
         getBuildFromQuery(codename, version, build)
       }
@@ -67,15 +78,16 @@ export default function Devices({
                   <span className='font-medium'>{`${device.name} (${device.codename})`}</span>
                   <div className='flex items-center space-x-2'>
                     <div className='flex flex-row-reverse flex-wrap items-center gap-2 text-gray-100'>
-                      {device.supported_versions.map((supportedVersion) => (
+                      {device.supported_versions?.map((supportedVersion) => (
                         <p className='px-4 py-2 text-sm rounded-l-full rounded-r-full shadow-sm bg-emerald-400'>
                           {supportedVersion.version_name}
                         </p>
                       ))}
                     </div>
                     <ChevronUpIcon
-                      className={`${open ? 'transform rotate-180' : ''
-                        } w-5 h-5 text-white`}
+                      className={`${
+                        open ? 'transform rotate-180' : ''
+                      } w-5 h-5 text-white`}
                     />
                   </div>
                 </Disclosure.Button>
@@ -89,7 +101,7 @@ export default function Devices({
                 >
                   <Disclosure.Panel className='w-full px-4 pt-4 pb-2 text-sm '>
                     <div className='space-y-2 bg-aex-400 '>
-                      {device.supported_versions.map((supportedVersion) => (
+                      {device.supported_versions?.map((supportedVersion) => (
                         <BuildList
                           deivceInfo={supportedVersion}
                           codename={device.codename}
@@ -112,18 +124,18 @@ export default function Devices({
   )
 }
 
-export async function getStaticProps() {
-
-  function filterDeviceBrands(data) {
-    let set = new Set()
+export const getStaticProps: GetStaticProps = async () => {
+  function filterDeviceBrands(data: SupportedDevices): string[] {
+    let set = new Set<string>()
     data.map((device) => {
       set.add(device.brand)
     })
-    return [...set]
+    let uniqueBrands = Array.from(set)
+    return uniqueBrands
   }
 
   const response = await fetch(`https://api.aospextended.com/devices`)
-  const allSupportedDevices = await response.json()
+  const allSupportedDevices: SupportedDevices = await response.json()
   const allSupportedBrands = filterDeviceBrands(allSupportedDevices)
   const initalDevices = allSupportedDevices.filter(
     (device) => device.brand === allSupportedBrands[0]

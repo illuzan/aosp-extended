@@ -2,15 +2,25 @@ import React from 'react'
 import Link from 'next/link'
 import { getAllPosts } from '../utils/mdx'
 import { Adsense } from '@ctrl/react-adsense'
+import { GetStaticProps } from 'next'
 
-export default function Blog({ data }) {
-  const date = new Date(data[0].frontmatter.publishedAt)
+type Props = {
+  allBlogPost: {
+    frontmatter: {
+      [key: string]: any
+    }
+    slug: string
+  }[]
+}
+
+export default function Blog({ allBlogPost }: Props) {
+  const date = new Date(allBlogPost[0].frontmatter.publishedAt)
   const [month, day, year] = [
     date.toLocaleString('default', { month: 'short' }),
     date.getDate(),
     date.getFullYear(),
   ]
-  console.log(data[0].frontmatter)
+  console.log(allBlogPost[0].frontmatter)
   return (
     <div className='text-gray-100'>
       <Adsense
@@ -29,7 +39,9 @@ export default function Blog({ data }) {
           href='#'
         >
           <img src='/b.png' alt='' className='w-full h-full' />
-          <h1 className='text-4xl font-medium '>{data[0].frontmatter.title}</h1>
+          <h1 className='text-4xl font-medium '>
+            {allBlogPost[0].frontmatter.title}
+          </h1>
           <div className='flex justify-between pr-4 space-x-3 text-sm font-light text-center text-gray-300 justify-items-center'>
             <div className='flex space-x-1 text-center justify-items-center'>
               <svg
@@ -46,7 +58,7 @@ export default function Blog({ data }) {
                   d='M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z'
                 />
               </svg>
-              <p>{data[0].frontmatter.author}</p>
+              <p>{allBlogPost[0].frontmatter.author}</p>
             </div>
             <div className='flex space-x-1 text-center justify-items-center '>
               <svg
@@ -80,10 +92,10 @@ export default function Blog({ data }) {
 
       {/* Other Posts */}
       <div className='grid grid-cols-1 gap-8 mt-10 lg:grid-cols-3 md:grid-cols-2'>
-        {data.map((item) =>
-          item.frontmatter.title === data[0].frontmatter.title ? null : (
+        {allBlogPost.map((item) =>
+          item.frontmatter.title === allBlogPost[0].frontmatter.title ? null : (
             <article className='p-6 bg-[#332e4e]'>
-            {/* <Link> */}
+              {/* <Link> */}
               <h3 className='mb-2 text-2xl'>{item.frontmatter.title}</h3>
               <p className='mb-6'>{item.frontmatter?.excerpt}</p>
               <div className='flex flex-col justify-between space-y-2 text-sm font-light text-center text-gray-300 justify-items-center'>
@@ -102,7 +114,7 @@ export default function Blog({ data }) {
                       d='M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z'
                     />
                   </svg>
-                  <p>{data[0].frontmatter.author}</p>
+                  <p>{allBlogPost[0].frontmatter.author}</p>
                 </div>
                 <div className='flex space-x-1 text-center justify-items-center '>
                   <svg
@@ -123,7 +135,7 @@ export default function Blog({ data }) {
                 </div>
               </div>
               <p></p>
-            {/* </Link> */}
+              {/* </Link> */}
             </article>
           )
         )}
@@ -134,9 +146,9 @@ export default function Blog({ data }) {
     </div>
   )
 }
-export const getStaticProps = ({ params }) => {
-  const data = getAllPosts()
+export const getStaticProps: GetStaticProps = async () => {
+  const allBlogPost = getAllPosts()
   return {
-    props: { data },
+    props: { allBlogPost },
   }
 }

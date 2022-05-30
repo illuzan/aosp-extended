@@ -2,8 +2,22 @@ import React, { useMemo } from 'react'
 import { getMDXComponent } from 'mdx-bundler/client'
 import { getAllPosts, getSinglePost } from '../../utils/mdx'
 import { Adsense } from '@ctrl/react-adsense'
+import { GetStaticPaths, GetStaticProps } from 'next'
+import { ParsedUrlQuery } from 'querystring'
 
-export default function Post({ code, frontmatter }) {
+interface IParams extends ParsedUrlQuery {
+  slug: string
+}
+
+type Props = {
+  frontmatter: {
+    [key: string]: any
+  }
+  code: string
+}
+
+export default function Post({ code, frontmatter }: Props) {
+  console.log(code, frontmatter)
   const Component = useMemo(() => getMDXComponent(code), [code])
   const date = new Date(frontmatter.publishedAt)
   const [month, day, year] = [
@@ -13,7 +27,6 @@ export default function Post({ code, frontmatter }) {
   ]
   return (
     <div className=''>
-
       <Adsense
         className='mb-6 border-8 rounded adsbygoogle'
         client='ca-pub-5289211378270082'
@@ -65,7 +78,6 @@ export default function Post({ code, frontmatter }) {
         <div className='p-6 prose text-white lg:pr-10 max-w-none'>
           <Component />
         </div>
-
       </div>
       <Adsense
         className='my-6 border-8 rounded'
@@ -79,14 +91,16 @@ export default function Post({ code, frontmatter }) {
     </div>
   )
 }
-export const getStaticProps = async ({ params }) => {
-  const post = await getSinglePost(params.slug)
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const { slug } = params as IParams
+  const post = await getSinglePost(slug)
   return {
     props: { ...post },
   }
 }
 
-export const getStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths = async () => {
   const paths = getAllPosts().map(({ slug }) => ({ params: { slug } }))
   return {
     paths,
