@@ -1,5 +1,5 @@
-import Features from '../components/features'
-import Screenshot from '../components/screenshot'
+import Features from '../components/Features'
+import Screenshot from '../components/Screenshots'
 
 export default function Home() {
   return (

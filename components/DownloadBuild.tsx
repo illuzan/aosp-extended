@@ -10,18 +10,38 @@ import {
   TotalDownloadIcon,
 } from '../utils/icons'
 
-export default function DownloadBuild({ buildDetails, openModal }) {
-  console.log(buildDetails, 'buildDetails')
+type Props = {
+  buildDetails: {
+    file_name: string
+    file_size: number
+    timestamp: string
+    md5: string
+    download_link: string
+    recovery_download_link?: string | undefined
+    isCustomAvbSupported?: boolean | undefined
+    downloads_count: number
+    changelog?: string | undefined
+  }
+  openModal?: boolean
+  showButton?: boolean
+}
+
+export default function DownloadBuild({
+  buildDetails,
+  openModal = false,
+  showButton = true,
+}: Props) {
   const [isChangelogOpen, setIsChangelogOpen] = useState(false)
-  const [isModalOpen, setIsModalOpen] = useState(openModal ? openModal : false)
-  const changelogRef = useRef()
+  const [isModalOpen, setIsModalOpen] = useState(openModal)
+  const changelogRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const checkIfClickedOutside = (e) => {
+    const checkIfClickedOutside = (event: MouseEvent) => {
+      console.log(event)
       if (
         isChangelogOpen &&
         changelogRef.current &&
-        !changelogRef.current.contains(e.target)
+        !changelogRef.current.contains(event.target as Node)
       ) {
         setIsChangelogOpen(false)
       }
@@ -33,19 +53,17 @@ export default function DownloadBuild({ buildDetails, openModal }) {
     }
   }, [isChangelogOpen])
 
-  function change() {
-    setIsModalOpen(true)
-  }
-
   return (
     <>
-      <button
-        type='button'
-        onClick={() => setIsModalOpen((value) => !value)}
-        className='px-4 py-2 text-sm font-medium text-white bg-black rounded-md bg-opacity-20 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75'
-      >
-        Get Build
-      </button>
+      {showButton ? (
+        <button
+          type='button'
+          onClick={() => setIsModalOpen((value) => !value)}
+          className='px-4 py-2 text-sm font-medium text-white bg-black rounded-md bg-opacity-20 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75'
+        >
+          Get Build
+        </button>
+      ) : null}
       <Transition appear show={isModalOpen} as={Fragment}>
         <Dialog
           as='div'
@@ -99,7 +117,9 @@ export default function DownloadBuild({ buildDetails, openModal }) {
                           <FileZipIcon className='w-6 h-6' />
                         </div>
                         <div className='text-sm'>
-                          <h3 className='font-medium'>{buildDetails.file_name}</h3>
+                          <h3 className='font-medium'>
+                            {buildDetails.file_name}
+                          </h3>
                           <p>
                             {format(
                               parse(
@@ -182,8 +202,9 @@ export default function DownloadBuild({ buildDetails, openModal }) {
                   <div
                     ref={changelogRef}
                     className={` z-10 absolute inset-x-0 bottom-0   w-full transition-all h-[85%] bg-aex-300 border-gray-600 border overflow-y-auto
-                   ${isChangelogOpen ? 'translate-y-1 ' : ' translate-y-full'
-                      } `}
+                   ${
+                     isChangelogOpen ? 'translate-y-1 ' : ' translate-y-full'
+                   } `}
                   >
                     <div className='relative text-gray-100'>
                       <div className='sticky top-0 flex justify-between p-2 border-b bg-aex-300 border-aex-400 '>
@@ -211,8 +232,7 @@ export default function DownloadBuild({ buildDetails, openModal }) {
                       </div>
                       <div className='px-4 py-2 overflow-x-hidden overflow-y-auto text-sm leading-relaxed text-gray-100 whitespace-pre-wrap'>
                         {buildDetails.changelog ? (
-                          <p > {buildDetails.changelog}</p>
-
+                          <p> {buildDetails.changelog}</p>
                         ) : (
                           <p>No changelog found, lazy maintainer :P</p>
                         )}

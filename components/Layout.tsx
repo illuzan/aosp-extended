@@ -1,16 +1,18 @@
 import Head from 'next/head'
 import Script from 'next/script'
-import Navbar from './navbar'
-import Footer from './footer'
+import Navbar from './Navbar'
+import Footer from './Footer'
+import { Navigation, Social } from '../utils/types'
 
-const navigation = [
+const navigation: Navigation = [
   { name: 'Devices', href: '/devices' },
   { name: 'Blog', href: '/blog' },
   { name: 'About', href: '/about' },
   { name: 'Stats', href: '/stats' },
   { name: 'Donate', href: 'https://paypal.me/ishubhamsingh' },
 ]
-const social = [
+
+const social: Social = [
   {
     name: 'Github',
     href: 'https://github.com/AospExtended',
@@ -78,7 +80,11 @@ const social = [
   },
 ]
 
-export default function Layout({ children }) {
+type Props = {
+  children: React.ReactNode
+}
+
+export default function Layout({ children }: Props) {
   return (
     <>
       <Head>

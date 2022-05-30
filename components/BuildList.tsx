@@ -6,14 +6,30 @@ import { format } from 'date-fns'
 import { parse } from 'date-fns'
 import filesize from 'filesize'
 import DownloadBuild from './DownloadBuild'
+import { BuildDetails } from '../utils/types'
+
+type Props = {
+  deivceInfo: {
+    version_code: string
+    version_name: string
+    maintainer_name: string
+    maintainer_url: string
+    xda_thread: string
+    tg_link?: string | null | undefined
+    supportsCustomAvb?: boolean | null | undefined
+  }
+  versionName: string
+  maintainerName: string
+  codename: string
+}
 
 export default function BuildList({
   deivceInfo,
   versionName,
   maintainerName,
   codename,
-}) {
-  const [buildList, setBuildList] = useState(null)
+}: Props) {
+  const [buildList, setBuildList] = useState<BuildDetails | null>(null)
   const [error, setError] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
   const [buildAlreadyLoaded, setBuildAlreadyLoaded] = useState(false)
@@ -31,7 +47,7 @@ export default function BuildList({
         setError(true)
         return null
       }
-      const data = await response.json()
+      const data: BuildDetails = await response.json()
       setBuildList(data)
       setBuildAlreadyLoaded(true)
       setIsLoading(false)
@@ -47,8 +63,9 @@ export default function BuildList({
           <Disclosure.Button
             onMouseEnter={getDeviceBuilds}
             onFocus={getDeviceBuilds}
-            className={`${open ? 'rounded-b-none  ' : ''
-              } flex items-center justify-between w-full px-4 py-2 text-sm font-medium text-left text-gray-100 rounded-lg bg-[#332e4e] hover:bg-[#403960] focus:outline-none focus-visible:ring focus-visible:ring-aex-accent focus-visible:ring-opacity-75 transition-all`}
+            className={`${
+              open ? 'rounded-b-none  ' : ''
+            } flex items-center justify-between w-full px-4 py-2 text-sm font-medium text-left text-gray-100 rounded-lg bg-[#332e4e] hover:bg-[#403960] focus:outline-none focus-visible:ring focus-visible:ring-aex-accent focus-visible:ring-opacity-75 transition-all`}
           >
             <div className='flex space-x-2'>
               <div className='bg-[#242038] rounded-full h-10 w-10 flex justify-center items-center'>
@@ -67,8 +84,9 @@ export default function BuildList({
               </div>
             </div>
             <ChevronUpIcon
-              className={`${open ? 'transform rotate-180' : ''
-                } w-5 h-5 text-white`}
+              className={`${
+                open ? 'transform rotate-180' : ''
+              } w-5 h-5 text-white`}
             />
           </Disclosure.Button>
           <Disclosure.Panel className='px-4 pt-4 pb-2 text-sm !mt-0 bg-[#332e4e] text-gray-500 rounded-b-lg '>

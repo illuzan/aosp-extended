@@ -2,11 +2,17 @@ import { Fragment } from 'react'
 import { SelectorIcon } from '@heroicons/react/outline'
 import { Listbox, Transition, RadioGroup } from '@headlessui/react'
 
+type Props = {
+  filterDeviceFunction: (brandName: string) => void
+  brandList: string[]
+  selectedBrand: string
+}
+
 export default function BrandList({
   filterDeviceFunction,
   brandList,
   selectedBrand,
-}) {
+}: Props) {
   return (
     <>
       {/* BrandList - Mobile */}

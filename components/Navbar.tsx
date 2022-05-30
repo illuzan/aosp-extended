@@ -1,11 +1,16 @@
 import Link from 'next/link'
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/router'
 import { Fragment } from 'react'
 import { Popover, Transition } from '@headlessui/react'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
+import { Navigation } from '../utils/types'
 
-export default function Navbar({ navigation }) {
-  const router = useRouter();
+type Props = {
+  navigation: Navigation
+}
+
+export default function Navbar({ navigation }: Props) {
+  const router = useRouter()
   return (
     <Popover className='relative'>
       <nav className='flex justify-between pt-6 pb-8 sm:pb-24 '>
@@ -14,7 +19,7 @@ export default function Navbar({ navigation }) {
           <a>
             <span className='sr-only'>Aosp Extended</span>
             <img
-              src='/group.svg'
+              src='/logo_text.svg'
               className='h-7 sm:h-8'
               alt='AospExtended Logo'
             />
@@ -24,7 +29,13 @@ export default function Navbar({ navigation }) {
         <div className='hidden space-x-8 md:block'>
           {navigation.map((item) => (
             <Link key={item.name} href={item.href}>
-              <a className={` text-lg font-medium text-gray-100 hover:text-aex-accent transition-all ${router.asPath === item.href ? 'border-b-2 text-aex-accent  border-aex-accent ' : ''}`}>
+              <a
+                className={` text-lg font-medium text-gray-100 hover:text-aex-accent transition-all ${
+                  router.asPath === item.href
+                    ? 'border-b-2 text-aex-accent  border-aex-accent '
+                    : ''
+                }`}
+              >
                 {item.name}
               </a>
             </Link>
