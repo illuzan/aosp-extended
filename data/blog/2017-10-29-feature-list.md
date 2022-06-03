@@ -5,13 +5,13 @@ description: More features will be added soon !
 publishedAt: '2017-10-29'
 ---
 
-# **AospExtended Oreo Feature List** <br>
+# AospExtended Oreo Feature List
 
 ---
 
-##### _Last Updated on 11th March 2018_ <br><br><br>
+##### _Last Updated on 11th March 2018_
 
-### **Status Bar** <br>
+### **Status Bar**
 
 - VoLTE Status Bar logo with toggle
 - AEX Logo
@@ -26,9 +26,8 @@ publishedAt: '2017-10-29'
 - Traffic Indicators
 - DT2S on Status bar
 - Status bar Brightness control
-  <br>
 
-### **Notification Panel** <br>
+### **Notification Panel**
 
 - Brightness Slider Toggle
 - Brightness Icon Toggle
@@ -42,9 +41,8 @@ publishedAt: '2017-10-29'
 - Ticker Scroll/Fade animation
 - Configure notifications sound/vibration behaviour on screen on
 - Smart notifications delay
-  <br>
 
-### **QS Tiles** <br>
+### **QS Tiles**
 
 - PiP
 - Caffeine
@@ -65,25 +63,22 @@ publishedAt: '2017-10-29'
 - Navigation bar
 - HW nav button
 - Google sound search
-  <br>
 
-### **Navigation Bar** <br>
+### **Navigation Bar**
 
 - DT2S on Smartbar
 - DUI ( Smartbar, Fling, Pulse)
 - Use accent color for pulse
 - Use album art color for pulse
-  <br>
 
-### **Recents** <br>
+### **Recents**
 
 - AOSP Recents Icon Pack
 - Memory Bar
 - Clear All Button Toggle/Location
 - Slim recents
-  <br>
 
-### **Lockscreen** <br>
+### **Lockscreen**
 
 - DT2S on Lockscreen
 - Lockscreen weather
@@ -92,9 +87,8 @@ publishedAt: '2017-10-29'
 - Hide lockscreen items (clock, date, alarm text)
 - Ambient display music ticker
 - Media Art Cover Toggle
-  <br>
 
-### **System** <br>
+### **System**
 
 - App's Icon in toast
 - Disable FC
@@ -110,9 +104,8 @@ publishedAt: '2017-10-29'
 - Hardware nav buttons and backlight customizations
 - App Ops
 - System App Remover
-  <br>
 
-### **Misc** <br>
+### **Misc**
 
 - Toggle between various accent colors
 - Toggle between Wallpaper based/Light/Dark/Black/Extended UI modes
@@ -131,18 +124,16 @@ publishedAt: '2017-10-29'
 - CPU info Overlay
 - OTA support
 - Adaptive icons for inbuilt apps
-  <br>
 
-### **Security** <br>
+### **Security**
 
 - Toggle auto faceunlock
 - Toggle pattern error visibility
 - Toggle pattern dots visibility
 - Toggle swipe-up to unlock
 - 3x3, 4x4, 5x5 ,6x6 pattern grid size
-  <br>
 
-### **Apps included** <br>
+### **Apps included**
 
 - AEXPapers
 - AOSP Dialer

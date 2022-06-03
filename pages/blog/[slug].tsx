@@ -75,7 +75,7 @@ export default function Post({ code, frontmatter }: Props) {
         </div>
       </div>
       <div className='bg-[#332e4e] rounded-md shadow-lg'>
-        <div className='p-6 prose text-white lg:pr-10 max-w-none'>
+        <div className='p-6 prose prose-invert text-white lg:pr-10 max-w-none'>
           <Component />
         </div>
       </div>
