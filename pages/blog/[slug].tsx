@@ -17,7 +17,6 @@ type Props = {
 }
 
 export default function Post({ code, frontmatter }: Props) {
-  console.log(code, frontmatter)
   const Component = useMemo(() => getMDXComponent(code), [code])
   const date = new Date(frontmatter.publishedAt)
   const [month, day, year] = [
@@ -26,14 +25,15 @@ export default function Post({ code, frontmatter }: Props) {
     date.getFullYear(),
   ]
   return (
-    <div className=''>
+    <div>
       <Adsense
-        className='mb-6 border-8 rounded adsbygoogle'
+        className='mb-6 adsbygoogle'
         client='ca-pub-5289211378270082'
-        slot='2672680700'
+        slot='1848543721'
         style={{ display: 'block' }}
         format='auto'
         responsive='true'
+        adTest='on'
       />
       <div className='px-6 py-6 mb-4 rounded-md shadow-2xl bg-gradient-to-t from-[#30eeb7] to-[#31ee95] text-gray-800 '>
         <h1 className='mb-4 text-4xl font-bold'>{frontmatter.title}</h1>
@@ -80,13 +80,13 @@ export default function Post({ code, frontmatter }: Props) {
         </div>
       </div>
       <Adsense
-        className='my-6 border-8 rounded'
+        className='adsbygoogle'
         client='ca-pub-5289211378270082'
-        slot='2125885795'
+        slot='1848543721'
         style={{ display: 'block' }}
         format='auto'
         responsive='true'
-        layoutKey='-gw-1+2a-9x+5c'
+        adTest='on'
       />
     </div>
   )

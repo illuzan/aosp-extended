@@ -1,8 +1,8 @@
 ---
 title: AospExtended v5.3 Changelog
-publishedAt: '2019-12-26'
 author: Shubham Singh
-description: Merged March Security Patch(8.1.0_r15) - Added left clock position, dropped center clock - Added left clock position, dropped center clock
+description: v5.3 March 2018 release
+publishedAt: '2018-03-11'
 ---
 
 - Merged March Security Patch(8.1.0_r15)
