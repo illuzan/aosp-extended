@@ -26,7 +26,7 @@ const team = [
   {
     name: 'Shubham Bhise',
     description: 'Realme 2 Pro (RMX1801/RMX1807)  Maintainer',
-    bio: '24 | Indian | Android enthusiast | Foodie',
+    bio: 'Indian | Android enthusiast',
     github: 'https://github.com/sb6596',
     xda: 'https://forum.xda-developers.com/member.php?u=7666467',
     telegram: 'https://t.me/sb6596',
@@ -40,7 +40,16 @@ const team = [
     xda: 'https://forum.xda-developers.com/member.php?u=6268432',
     telegram: 'https://t.me/sagarmakhar',
   },
+  {
+    name: 'Gaurav Singh',
+    description: 'Developer & Designer',
+    bio: 'Open-source enthusiast',
+    github: 'https://github.com/illuzan',
+    xda: 'https://forum.xda-developers.com/m/allstargaurav.7751333/',
+    telegram: 'https://t.me/illuzan',
+  },
 ]
+
 const contributors = [
   {
     name: 'Arghya Chanda',

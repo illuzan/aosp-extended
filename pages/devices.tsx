@@ -136,7 +136,11 @@ export default function Devices({
         ))}
       </h1>
       {openModal ? (
-        <DownloadBuild openModal={openModal} buildDetails={buildDetails} />
+        <DownloadBuild
+          openModal={openModal}
+          buildDetails={buildDetails}
+          showButton={false}
+        />
       ) : null}
     </div>
   )

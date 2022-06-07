@@ -52,7 +52,10 @@ export const getSinglePost = async (slug: string) => {
     })
   const source = getFileContent(fileSlug)
   const { code, frontmatter } = await getCompiledMDX(source)
-
+  const date = new Date(frontmatter.publishedAt)
+  frontmatter.publishedAt = `${date.toLocaleString('default', {
+    month: 'long',
+  })} ${date.getDate()},${date.getFullYear()}`
   return {
     frontmatter,
     code,
@@ -70,7 +73,10 @@ export const getAllPosts = () => {
         .replace(/\.mdx?$/, '')
         .toLowerCase()
       const { data } = matter(source)
-
+      const date = new Date(data.publishedAt)
+      data.publishedAt = `${date.toLocaleString('default', {
+        month: 'short',
+      })} ${date.getDate()},${date.getFullYear()}`
       return {
         frontmatter: data,
         slug: slug,

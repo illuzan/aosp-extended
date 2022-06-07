@@ -14,16 +14,8 @@
     font-named-instance: 'Regular';
     src: url('/fonts/Inter.woff2') format('woff2');
   }
-  @font-face {
-    font-family: 'Inter';
-    font-weight: 100 900;
-    font-display: fallback;
-    font-style: italic;
-    font-named-instance: 'Italic';
-    src: url('/fonts/Inter-Italic.woff2') format('woff2');
-  }
 
-  /* width */
+  /* Width */
   ::-webkit-scrollbar {
     width: 16px;
     height: 16px;
@@ -35,7 +27,7 @@
   /* Handle */
   ::-webkit-scrollbar-thumb {
     background: #322d53;
-    /* border-radius: 100vh; */
+    border-radius: 100vh;
     border: 2px solid #31ee91;
   }
   /* Handle on hover */
