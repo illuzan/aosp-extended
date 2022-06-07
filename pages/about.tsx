@@ -1,4 +1,5 @@
 import React from 'react'
+import Head from 'next/head'
 import Image from 'next/image'
 import { team, contributors } from '../data/team'
 import { GitHubIcon, XDAIcon, TelegramIcon } from '../utils/icons'
@@ -49,15 +50,27 @@ export default function About() {
   const teamList = [...team, ...contributors]
   return (
     <div>
+      <Head>
+        {/* Primary Meta Tags */}
+        <title>About | AOSP Extended</title>
+        <meta name='title' content='About | AOSP Extended' />
+        <meta name='description' content='About Us' />
+        {/* Open Graph / Facebook */}
+        <meta property='og:url' content='https://aospextended.com/about' />
+        <meta property='og:title' content='About | AOSP Extended' />
+        <meta property='og:description' content='About Us' />
+        {/* Twitter */}
+        <meta property='twitter:url' content='https://aospextended.com/about' />
+        <meta property='twitter:title' content='About | AOSP Extended' />
+        <meta property='twitter:description' content='About Us' />
+      </Head>
       <div className='mb-8 text-center'>
         <h1 className='mb-4 text-4xl font-bold text-gray-100'>About Us</h1>
         <p className='text-gray-300'>
           An Android custom ROM that aims to provide useful customizations with
           stability.
         </p>
-        <p className='text-gray-300'>
-          It was stated because of why why whydsfsdaf 2017.
-        </p>
+        <p className='text-gray-300'>It was stated 2015.</p>
       </div>
       <div className='m-4 space-y-8 md:space-y-0 md:grid lg:grid-cols-3 md:grid-cols-2 md:gap-8'>
         {teamList.map((feature) => (

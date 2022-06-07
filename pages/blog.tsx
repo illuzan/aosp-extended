@@ -1,8 +1,10 @@
 import React from 'react'
+import Head from 'next/head'
 import Link from 'next/link'
+import Script from 'next/script'
+import { GetStaticProps } from 'next'
 import { getAllPosts } from '../utils/mdx'
 import { Adsense } from '@ctrl/react-adsense'
-import { GetStaticProps } from 'next'
 
 type Props = {
   allBlogPost: {
@@ -14,23 +16,44 @@ type Props = {
 }
 
 export default function Blog({ allBlogPost }: Props) {
-  const date = new Date(allBlogPost[0].frontmatter.publishedAt)
-  const [month, day, year] = [
-    date.toLocaleString('default', { month: 'short' }),
-    date.getDate(),
-    date.getFullYear(),
-  ]
   return (
     <div className='text-gray-100'>
-      <Adsense
-        className='adsbygoogle'
-        client='ca-pub-5289211378270082'
-        slot='1848543721'
-        style={{ display: 'block' }}
-        format='auto'
-        responsive='true'
-        adTest='on'
-      />
+      <Head>
+        {/* Primary Meta Tags */}
+        <title>Blog | AOSP Extended</title>
+        <meta name='title' content='Blog | AOSP Extended' />
+        <meta
+          name='description'
+          content='News and announcement for our new releases'
+        />
+        {/* Open Graph / Facebook */}
+        <meta property='og:url' content='https://aospextended.com/blog' />
+        <meta property='og:title' content='Blog | AOSP Extended' />
+        <meta
+          property='og:description'
+          content='News and announcement for our new releases'
+        />
+        {/* Twitter */}
+        <meta property='twitter:url' content='https://aospextended.com/blog' />
+        <meta property='twitter:title' content='Blog | AOSP Extended' />
+        <meta
+          property='twitter:description'
+          content='News and announcement for our new releases'
+        />
+      </Head>
+      {/* Google Adsense script */}
+      <Script src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js' />
+      <div className='overflow-hidden'>
+        <Adsense
+          className='adsbygoogle'
+          client='ca-pub-5289211378270082'
+          slot='1848543721'
+          style={{ display: 'block' }}
+          format='auto'
+          responsive='true'
+          adTest='on'
+        />
+      </div>
       <h1 className='text-4xl'>All Posts</h1>
       {/* Latest Post */}
       <div className='grid grid-cols-1 gap-8 mt-10 md:grid-cols-2'>
@@ -38,10 +61,10 @@ export default function Blog({ allBlogPost }: Props) {
           className='flex flex-col p-6 shadow-lg bg-[#332e4e] space-y-6 rounded'
           href={`/blog/${allBlogPost[0].slug}`}
         >
-          <img src='/b.png' alt='' className='w-full h-full' />
-          <h1 className='text-4xl font-medium '>
+          <img src='/blog.png' alt='' className='w-full h-full' />
+          <h2 className='text-4xl font-medium '>
             {allBlogPost[0].frontmatter.title}
-          </h1>
+          </h2>
           <div className='flex justify-between pr-4 space-x-3 text-sm font-light text-center text-gray-300 justify-items-center'>
             <div className='flex space-x-1 text-center justify-items-center'>
               <svg
@@ -75,21 +98,22 @@ export default function Blog({ allBlogPost }: Props) {
                   d='M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z'
                 />
               </svg>
-              <p>{`${month} ${day},${year}`}</p>
+              <p>{allBlogPost[0].frontmatter.publishedAt}</p>
             </div>
           </div>
         </a>
-        <Adsense
-          className='adsbygoogle'
-          client='ca-pub-5289211378270082'
-          slot='9848406956'
-          style={{ display: 'block' }}
-          format='auto'
-          responsive='true'
-          // adTest='on'
-        />
+        <div className='overflow-hidden'>
+          <Adsense
+            className='adsbygoogle'
+            client='ca-pub-5289211378270082'
+            slot='9848406956'
+            style={{ display: 'block' }}
+            format='auto'
+            responsive='true'
+            adTest='on'
+          />
+        </div>
       </div>
-
       {/* Other Posts */}
       <div className='grid grid-cols-1 gap-8 mt-10 lg:grid-cols-3 md:grid-cols-2'>
         {allBlogPost.map((item) =>
@@ -132,7 +156,7 @@ export default function Blog({ allBlogPost }: Props) {
                           d='M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z'
                         />
                       </svg>
-                      <p>{`${month} ${day},${year}`}</p>
+                      <p>{item.frontmatter.publishedAt}</p>
                     </div>
                   </div>
                   <p></p>

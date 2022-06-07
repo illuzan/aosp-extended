@@ -13,7 +13,7 @@ export default function Navbar({ navigation }: Props) {
   const router = useRouter()
   return (
     <Popover className='relative'>
-      <nav className='flex justify-between pt-6 pb-8 sm:pb-24 '>
+      <nav className='flex justify-between pt-6 pb-8 sm:pb-24 md:px-2'>
         {/* Logo left side */}
         <Link href='/'>
           <a>
@@ -64,7 +64,7 @@ export default function Navbar({ navigation }: Props) {
                 <a href='#'>
                   <span className='sr-only'>Aosp Extended</span>
                   <img
-                    src='/group.svg'
+                    src='/logo_text.svg'
                     className='h-7 sm:h-8'
                     alt='AospExtended Logo'
                   />

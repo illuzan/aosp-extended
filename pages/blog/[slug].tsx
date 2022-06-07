@@ -1,9 +1,11 @@
-import React, { useMemo } from 'react'
+import { useMemo } from 'react'
+import Head from 'next/head'
+import Script from 'next/script'
+import { Adsense } from '@ctrl/react-adsense'
+import { ParsedUrlQuery } from 'querystring'
+import { GetStaticPaths, GetStaticProps } from 'next'
 import { getMDXComponent } from 'mdx-bundler/client'
 import { getAllPosts, getSinglePost } from '../../utils/mdx'
-import { Adsense } from '@ctrl/react-adsense'
-import { GetStaticPaths, GetStaticProps } from 'next'
-import { ParsedUrlQuery } from 'querystring'
 
 interface IParams extends ParsedUrlQuery {
   slug: string
@@ -14,18 +16,45 @@ type Props = {
     [key: string]: any
   }
   code: string
+  slug: string
 }
 
-export default function Post({ code, frontmatter }: Props) {
+export default function Post({ code, frontmatter, slug }: Props) {
   const Component = useMemo(() => getMDXComponent(code), [code])
-  const date = new Date(frontmatter.publishedAt)
-  const [month, day, year] = [
-    date.toLocaleString('default', { month: 'long' }),
-    date.getDate(),
-    date.getFullYear(),
-  ]
+
   return (
     <div>
+      <Head>
+        {/* Primary Meta Tags */}
+        <title>{frontmatter.title} | AOSP Extended</title>
+        <meta name='title' content={`${frontmatter.title} | AOSP Extended`} />
+        <meta name='description' content={frontmatter.description} />
+        {/* Open Graph / Facebook */}
+        <meta
+          property='og:url'
+          content={`https://aospextended.com/stats/${slug}`}
+        />
+        <meta
+          property='og:title'
+          content={`${frontmatter.title} | AOSP Extended`}
+        />
+        <meta property='og:description' content={frontmatter.description} />
+        {/* Twitter */}
+        <meta
+          property='twitter:url'
+          content={`https://aospextended.com/stats/${slug}`}
+        />
+        <meta
+          property='twitter:title'
+          content={`${frontmatter.title} | AOSP Extended`}
+        />
+        <meta
+          property='twitter:description'
+          content={frontmatter.description}
+        />
+      </Head>
+      {/* Google Adsense script */}
+      <Script src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js' />
       <Adsense
         className='mb-6 adsbygoogle'
         client='ca-pub-5289211378270082'
@@ -53,7 +82,7 @@ export default function Post({ code, frontmatter }: Props) {
                 d='M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z'
               />
             </svg>
-            <p>{`${month} ${day},${year}`}</p>
+            <p>{frontmatter.publishedAt}</p>
           </div>
           <div className='flex space-x-1 text-center justify-items-center'>
             <svg
@@ -96,7 +125,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { slug } = params as IParams
   const post = await getSinglePost(slug)
   return {
-    props: { ...post },
+    props: { ...post, slug },
   }
 }
 

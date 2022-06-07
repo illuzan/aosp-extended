@@ -1,8 +1,9 @@
 import React from 'react'
+import Head from 'next/head'
 import Link from 'next/link'
-import { DeviceIcon, DownloadIcon } from '../utils/icons'
 import { GetStaticProps } from 'next'
 import { StatsTypes } from '../utils/types'
+import { DeviceIcon, DownloadIcon } from '../utils/icons'
 
 type Props = {
   stats: StatsTypes
@@ -12,6 +13,29 @@ export default function Stats({ stats }: Props) {
   const numberFormatter = new Intl.NumberFormat()
   return (
     <>
+      <Head>
+        {/* Primary Meta Tags */}
+        <title>Stats | AOSP Extended</title>
+        <meta name='title' content='Stats | AOSP Extended' />
+        <meta
+          name='description'
+          content='View the most recent statistics for popular devices and builds.'
+        />
+        {/* Open Graph / Facebook */}
+        <meta property='og:url' content='https://aospextended.com/stats' />
+        <meta property='og:title' content='Stats | AOSP Extended' />
+        <meta
+          property='og:description'
+          content='View the most recent statistics for popular devices and builds.'
+        />
+        {/* Twitter */}
+        <meta property='twitter:url' content='https://aospextended.com/stats' />
+        <meta property='twitter:title' content='Stats | AOSP Extended' />
+        <meta
+          property='twitter:description'
+          content='View the most recent statistics for popular devices and builds.'
+        />
+      </Head>
       <h1 className='mb-8 text-4xl font-bold text-center text-gray-100'>
         Stats - All Devices
       </h1>
@@ -140,7 +164,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const stats: StatsTypes = await response.json()
   return {
     props: { stats },
-    // Re-generate this page after 24 hours
-    revalidate: 86400,
+    // Re-generate this page after 2 hours
+    revalidate: 7200,
   }
 }

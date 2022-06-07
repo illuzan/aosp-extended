@@ -1,19 +1,61 @@
 import React from 'react'
+import Head from 'next/head'
 import { GetServerSideProps } from 'next'
-import { DeviceStats } from '../../utils/types'
 import { ParsedUrlQuery } from 'querystring'
+import { DeviceStats } from '../../utils/types'
+
 type Props = {
   deviceStats: DeviceStats
+  slug: string
 }
 
 interface IParams extends ParsedUrlQuery {
   slug: string
 }
 
-export default function Dev({ deviceStats }: Props) {
+export default function Dev({ deviceStats, slug }: Props) {
   const numberFormatter = new Intl.NumberFormat()
+
   return (
     <>
+      <Head>
+        {/* Primary Meta Tags */}
+        <title>{deviceStats.deviceModel} | AOSP Extended</title>
+        <meta
+          name='title'
+          content={`${deviceStats.deviceModel} | AOSP Extended`}
+        />
+        <meta
+          name='description'
+          content={`View the most recent statistics for ${deviceStats.deviceModel}.`}
+        />
+        {/* Open Graph / Facebook */}
+        <meta
+          property='og:url'
+          content={`https://aospextended.com/stats/${slug}`}
+        />
+        <meta
+          property='og:title'
+          content={`${deviceStats.deviceModel} | AOSP Extended`}
+        />
+        <meta
+          property='og:description'
+          content={`View the most recent statistics for ${deviceStats.deviceModel}.`}
+        />
+        {/* Twitter */}
+        <meta
+          property='twitter:url'
+          content={`https://aospextended.com/stats/${slug}`}
+        />
+        <meta
+          property='twitter:title'
+          content={`${deviceStats.deviceModel} | AOSP Extended`}
+        />
+        <meta
+          property='twitter:description'
+          content={`View the most recent statistics for ${deviceStats.deviceModel}.`}
+        />
+      </Head>
       <h1 className='mb-8 text-4xl font-bold text-center text-gray-100'>{`${deviceStats.deviceModel} - Total Installations`}</h1>
       {/* Total Installations */}
       <div className=''>
@@ -162,6 +204,6 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const response = await fetch(`https://api.aospextended.com/stats/${slug}`)
   const deviceStats: DeviceStats = await response.json()
   return {
-    props: { deviceStats }, // will be passed to the page component as props
+    props: { deviceStats, slug },
   }
 }

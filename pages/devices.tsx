@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
+import { GetStaticProps } from 'next'
+import Head from 'next/head'
 import BuildList from '../components/BuildList'
 import BrandList from '../components/BrandList'
 import DownloadBuild from '../components/DownloadBuild'
 import { ChevronUpIcon } from '@heroicons/react/outline'
 import { Disclosure, Transition } from '@headlessui/react'
 import { BuildDetails, SupportedDevices } from '../utils/types'
-import { GetStaticProps } from 'next'
 
 type Props = {
   allSupportedDevices: SupportedDevices
@@ -63,6 +64,23 @@ export default function Devices({
 
   return (
     <div className='grid grid-cols-5'>
+      <Head>
+        {/* Primary Meta Tags */}
+        <title>Download | AOSP Extended</title>
+        <meta name='title' content='Download | AOSP Extended' />
+        <meta name='description' content='Download latest build' />
+        {/* Open Graph / Facebook */}
+        <meta property='og:url' content='https://aospextended.com/devices' />
+        <meta property='og:title' content='Download | AOSP Extended' />
+        <meta property='og:description' content='Download latest build' />
+        {/* Twitter */}
+        <meta
+          property='twitter:url'
+          content='https://aospextended.com/devices'
+        />
+        <meta property='twitter:title' content='Download | AOSP Extended' />
+        <meta property='twitter:description' content='Download latest build' />
+      </Head>
       <BrandList
         filterDeviceFunction={filterDevices}
         brandList={allSupportedBrands}
