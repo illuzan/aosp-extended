@@ -35,8 +35,14 @@ export default function Footer({ navigation, social }: Props) {
           </a>
         ))}
       </div>
-      <p className='mt-8 text-base text-center text-gray-400'>
-        Made in <span className='pr-1'>🇮🇳 </span> by <b>Gaurav</b>
+      <p className='mt-8 text-base text-center text-gray-300'>
+        Made in <span> &#127470;&#127475;</span> by{' '}
+        <a
+          href='https://www.gauravs.dev/'
+          className='font-medium text-gray-100'
+        >
+          Gaurav
+        </a>
       </p>
     </footer>
   )

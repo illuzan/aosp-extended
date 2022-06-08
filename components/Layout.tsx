@@ -103,7 +103,7 @@ export default function Layout({ children }: Props) {
         src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'
         strategy='afterInteractive'
       />
-      <div className='px-4 mx-auto max-w-7xl sm:px-6'>
+      <div className='px-4 mx-auto max-w-7xl sm:px-6 h-screen'>
         <Navbar navigation={navigation} />
         {children}
         <Footer navigation={navigation} social={social} />
