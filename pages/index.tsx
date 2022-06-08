@@ -1,12 +1,13 @@
 import Link from 'next/link'
 import Features from '../components/Features'
 import Screenshot from '../components/Screenshots'
+import { LogoIcon } from '../utils/icons'
 
 export default function Home() {
   return (
     <>
       <main className='px-4 mx-auto mt-12 max-w-7xl sm:mt-18'>
-        <img src='/logo.svg' className='mx-auto h-80' alt='AospExtended Logo' />
+        <LogoIcon className='mx-auto h-80' />
         <div className='text-center'>
           <p className='max-w-md mx-auto mt-3 text-base text-gray-100 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl'>
             A stable Android custom ROM that aims to provide useful

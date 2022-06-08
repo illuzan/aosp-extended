@@ -1,10 +1,12 @@
 import React from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
+import Image from 'next/image'
 import Script from 'next/script'
 import { GetStaticProps } from 'next'
 import { getAllPosts } from '../utils/mdx'
 import { Adsense } from '@ctrl/react-adsense'
+import blogBanner from '../public/blog.png'
 
 type Props = {
   allBlogPost: {
@@ -61,7 +63,7 @@ export default function Blog({ allBlogPost }: Props) {
           className='flex flex-col p-6 shadow-lg bg-[#332e4e] space-y-6 rounded'
           href={`/blog/${allBlogPost[0].slug}`}
         >
-          <img src='/blog.png' alt='' className='w-full h-full' />
+          <Image src={blogBanner} alt='' />
           <h2 className='text-4xl font-medium '>
             {allBlogPost[0].frontmatter.title}
           </h2>

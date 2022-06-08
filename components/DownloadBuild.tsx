@@ -37,7 +37,6 @@ export default function DownloadBuild({
 
   useEffect(() => {
     const checkIfClickedOutside = (event: MouseEvent) => {
-      console.log(event)
       if (
         isChangelogOpen &&
         changelogRef.current &&
@@ -203,7 +202,9 @@ export default function DownloadBuild({
                     ref={changelogRef}
                     className={` z-10 absolute inset-x-0 bottom-0   w-full transition-all h-[85%] bg-aex-300 border-gray-600 border overflow-y-auto
                    ${
-                     isChangelogOpen ? 'translate-y-1 ' : ' translate-y-full'
+                     isChangelogOpen
+                       ? 'translate-y-1 block '
+                       : ' translate-y-full hidden '
                    } `}
                   >
                     <div className='relative text-gray-100'>

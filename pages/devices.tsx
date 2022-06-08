@@ -60,6 +60,7 @@ export default function Devices({
         getBuildFromQuery(codename, version, build)
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router.isReady])
 
   return (
@@ -97,7 +98,10 @@ export default function Devices({
                   <div className='flex items-center space-x-2'>
                     <div className='flex flex-row-reverse flex-wrap items-center gap-2 text-gray-100'>
                       {device.supported_versions?.map((supportedVersion) => (
-                        <p className='px-4 py-2 text-sm rounded-l-full rounded-r-full shadow-sm bg-emerald-400'>
+                        <p
+                          className='px-4 py-2 text-sm rounded-l-full rounded-r-full shadow-sm bg-emerald-400'
+                          key={supportedVersion.version_code}
+                        >
                           {supportedVersion.version_name}
                         </p>
                       ))}
@@ -125,6 +129,7 @@ export default function Devices({
                           codename={device.codename}
                           versionName={supportedVersion.version_name}
                           maintainerName={supportedVersion.maintainer_name}
+                          key={supportedVersion.version_code}
                         />
                       ))}
                     </div>

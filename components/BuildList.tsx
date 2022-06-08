@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Image from 'next/image'
 import ReactLoading from 'react-loading'
 import { Disclosure } from '@headlessui/react'
 import { ChevronUpIcon } from '@heroicons/react/outline'
@@ -7,6 +8,7 @@ import { parse } from 'date-fns'
 import filesize from 'filesize'
 import DownloadBuild from './DownloadBuild'
 import { BuildDetails } from '../utils/types'
+import errorIcon from '../public/404.png'
 
 type Props = {
   deivceInfo: {
@@ -136,7 +138,9 @@ export default function BuildList({
               </div>
             ) : error ? (
               <div className='flex flex-col items-center justify-center p-4 '>
-                <img className='w-40 h-40' src='404.png' alt='' />
+                <div className='w-40 h-40'>
+                  <Image src={errorIcon} alt='404 Image' />
+                </div>
                 <p className='mt-2 text-xl font-light text-gray-300'>
                   No Build Found
                 </p>

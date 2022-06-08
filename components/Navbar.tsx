@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import { Fragment } from 'react'
 import { Popover, Transition } from '@headlessui/react'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
+import { LogoTextIcon } from '../utils/icons'
 import { Navigation } from '../utils/types'
 
 type Props = {
@@ -18,11 +19,7 @@ export default function Navbar({ navigation }: Props) {
         <Link href='/'>
           <a>
             <span className='sr-only'>Aosp Extended</span>
-            <img
-              src='/logo_text.svg'
-              className='h-7 sm:h-8'
-              alt='AospExtended Logo'
-            />
+            <LogoTextIcon className='h-7 sm:h-8' alt='AospExtended Logo' />
           </a>
         </Link>
         {/* Links right side */}
@@ -63,8 +60,7 @@ export default function Navbar({ navigation }: Props) {
               <div className='flex items-center justify-between px-5 pt-4'>
                 <a href='#'>
                   <span className='sr-only'>Aosp Extended</span>
-                  <img
-                    src='/logo_text.svg'
+                  <LogoTextIcon
                     className='h-7 sm:h-8'
                     alt='AospExtended Logo'
                   />
