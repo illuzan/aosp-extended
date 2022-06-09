@@ -166,7 +166,7 @@ export default function DownloadBuild({
                       <div className='flex flex-wrap items-center p-2 justify-items-center'>
                         {buildDetails.download_link ? (
                           <a
-                            className='px-4 m-2  py-1 hover:bg-[#21ef8b2d] transition-all font-medium uppercase border rounded border-aex-accent text-aex-accent'
+                            className='px-4 m-2  py-1 hover:bg-[#21ef8b2d] transition-colors font-medium uppercase border rounded border-aex-accent text-aex-accent'
                             href={buildDetails.download_link}
                           >
                             Build
@@ -174,7 +174,7 @@ export default function DownloadBuild({
                         ) : null}
                         {buildDetails.recovery_download_link ? (
                           <a
-                            className='px-4 m-2 py-1 hover:bg-[#21ef8b2d] transition-all font-medium uppercase border rounded border-aex-accent text-aex-accent'
+                            className='px-4 m-2 py-1 hover:bg-[#21ef8b2d] transition-colors font-medium uppercase border rounded border-aex-accent text-aex-accent'
                             href={buildDetails.recovery_download_link}
                           >
                             Recovery
@@ -182,14 +182,14 @@ export default function DownloadBuild({
                         ) : null}
                         {buildDetails.isCustomAvbSupported ? (
                           <a
-                            className='px-4 m-2 py-1 hover:bg-[#21ef8b2d] transition-all font-medium uppercase border rounded border-aex-accent text-aex-accent'
+                            className='px-4 m-2 py-1 hover:bg-[#21ef8b2d] transition-colors font-medium uppercase border rounded border-aex-accent text-aex-accent'
                             href='https://github.com/AospExtended-Devices/blobs/raw/main/avb_custom_key.img'
                           >
                             AVB
                           </a>
                         ) : null}
                         <button
-                          className='px-4 py-1 m-2 hover:bg-[#21ef8b2d] transition-all font-medium uppercase border rounded border-aex-200 bg-aex-200 text-gray-100'
+                          className='px-4 py-1 m-2 hover:bg-[#21ef8b2d] transition-colors font-medium uppercase border rounded border-aex-200 bg-aex-200 text-gray-100'
                           onClick={() => setIsChangelogOpen((value) => !value)}
                         >
                           Changelog
@@ -200,12 +200,8 @@ export default function DownloadBuild({
                   {/* Changelog */}
                   <div
                     ref={changelogRef}
-                    className={` z-10 absolute inset-x-0 bottom-0   w-full transition-all h-[85%] bg-aex-300 border-gray-600 border overflow-y-auto
-                   ${
-                     isChangelogOpen
-                       ? 'translate-y-1 block '
-                       : ' translate-y-full hidden '
-                   } `}
+                    className={` z-10 absolute inset-x-0 bottom-0   w-full transition-transform h-[85%] bg-aex-300 border-gray-600 border overflow-y-auto
+                   ${isChangelogOpen ? 'translate-y-1' : 'translate-y-full'} `}
                   >
                     <div className='relative text-gray-100'>
                       <div className='sticky top-0 flex justify-between p-2 border-b bg-aex-300 border-aex-400 '>

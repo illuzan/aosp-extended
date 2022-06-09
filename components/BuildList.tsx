@@ -67,7 +67,7 @@ export default function BuildList({
             onFocus={getDeviceBuilds}
             className={`${
               open ? 'rounded-b-none  ' : ''
-            } flex items-center justify-between w-full px-4 py-2 text-sm font-medium text-left text-gray-100 rounded-lg bg-[#332e4e] hover:bg-[#403960] focus:outline-none focus-visible:ring focus-visible:ring-aex-accent focus-visible:ring-opacity-75 transition-all`}
+            } flex items-center justify-between w-full px-4 py-2 text-sm font-medium text-left text-gray-100 rounded-lg bg-[#332e4e] hover:bg-[#403960] focus:outline-none focus-visible:ring focus-visible:ring-aex-accent focus-visible:ring-opacity-75 transition-colors`}
           >
             <div className='flex space-x-2'>
               <div className='bg-[#242038] rounded-full h-10 w-10 flex justify-center items-center'>

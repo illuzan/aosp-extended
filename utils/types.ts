@@ -10,7 +10,12 @@ export type Social = {
 }[]
 
 export type StatsTypes = {
-  deviceCountList: { _id: string; name: string; model: string; count: number }[]
+  deviceCountList: {
+    _id: string
+    name: string
+    model: string
+    count: number
+  }[]
   countryCountList: { name: string; count: number }[]
   versionCountList: { _id: string; name: string; count: number }[]
   totalInstallations: number

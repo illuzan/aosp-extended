@@ -27,7 +27,7 @@ export default function Navbar({ navigation }: Props) {
           {navigation.map((item) => (
             <Link key={item.name} href={item.href}>
               <a
-                className={` text-lg font-medium text-gray-100 hover:text-aex-accent transition-all ${
+                className={` text-lg font-medium text-gray-100 hover:text-aex-accent transition-colors ${
                   router.asPath === item.href
                     ? 'border-b-2 text-aex-accent  border-aex-accent '
                     : ''

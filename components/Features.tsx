@@ -13,19 +13,19 @@ const features: {
   {
     name: 'OTA Updates',
     description:
-      'Lorem ipsum, dolor sit amet consecteturedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
+      'Supports OTA updates that allow you to easily download and install the latest updates via the built-in Updater app. \n Updates are regularly published with the latest security patches every month.',
     icon: GlobeAltIcon,
   },
   {
-    name: 'Secure',
+    name: 'Opensource',
     description:
-      'Lorem ipsum, derferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
+      'Open source allowing anyone to inspect, change and build his OS based on it. \n It is free and developed by several developers from across the globe voluntarily.',
     icon: ScaleIcon,
   },
   {
-    name: 'Regular updates',
+    name: 'Customization',
     description:
-      'Lorem ipsum, dolor sit amet consectetur adipisicsuscipit eaque, iste dolor cupiditate blanditiis ratione.',
+      'It packs a handful of customization options allowing the user to personalize the OS in a way that works the best for them. \n Monet-theming engine support ensures that your OS UI/UX remains unique to everyone.',
     icon: LightningBoltIcon,
   },
 ]
@@ -42,7 +42,7 @@ export default function Features() {
                 {feature.name}
               </p>
             </dt>
-            <dd className='mt-2 text-base text-gray-300'>
+            <dd className='mt-2 text-base text-gray-300 whitespace-pre-line'>
               {feature.description}
             </dd>
           </div>

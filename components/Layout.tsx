@@ -87,7 +87,9 @@ export default function Layout({ children }: Props) {
   return (
     <>
       <Head>
+        <html lang='en' />
         <title>AOSP Extended</title>
+        <meta name='title' content='AOSP Extended' />
         <meta
           name='description'
           content='A stable Android custom ROM that aims to provide useful customizations.'
@@ -99,9 +101,17 @@ export default function Layout({ children }: Props) {
         {/* Open Graph / Facebook */}
         <meta property='og:type' content='website' />
         <meta property='og:image' content='/banner.jpg' />
+        <meta
+          property='og:description'
+          content='A stable Android custom ROM that aims to provide useful customizations.'
+        />
         {/* Twitter */}
         <meta property='twitter:card' content='summary_large_image' />
         <meta property='twitter:image' content='/banner.jpg' />
+        <meta
+          property='twitter:description'
+          content='A stable Android custom ROM that aims to provide useful customizations.'
+        />
       </Head>
       <div className='px-4 mx-auto max-w-7xl sm:px-6 h-screen'>
         <Navbar navigation={navigation} />

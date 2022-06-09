@@ -72,7 +72,7 @@ export default function BrandList({
               value={brand}
               className={({ checked }) =>
                 `${checked ? 'ring-2  ring-aex-accent' : ''}
-                    p-4 m-2 text-left font-medium rounded-lg text-gray-100  bg-aex-300 flex focus:outline-none cursor-pointer hover:bg-aex-200 transition-all `
+                    p-4 m-2 text-left font-medium rounded-lg text-gray-100  bg-aex-300 flex focus:outline-none cursor-pointer hover:bg-aex-200 transition-colors `
               }
             >
               {brand}

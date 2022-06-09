@@ -93,7 +93,7 @@ export default function Devices({
           <Disclosure key={device.codename}>
             {({ open }) => (
               <>
-                <Disclosure.Button className='flex items-center justify-between w-full p-4 my-2  text-left text-gray-100 rounded-lg bg-[#332e4e] hover:bg-[#403960] focus:outline-none focus-visible:ring focus-visible:ring-aex-accent focus-visible:ring-opacity-75 transition-all'>
+                <Disclosure.Button className='flex items-center justify-between w-full p-4 my-2  text-left text-gray-100 rounded-lg bg-[#332e4e] hover:bg-[#403960] focus:outline-none focus-visible:ring focus-visible:ring-aex-accent focus-visible:ring-opacity-75 transition-colors'>
                   <span className='font-medium'>{`${device.name} (${device.codename})`}</span>
                   <div className='flex items-center space-x-2'>
                     <div className='flex flex-row-reverse flex-wrap items-center gap-2 text-gray-100'>

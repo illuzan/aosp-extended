@@ -6,15 +6,62 @@
   @import 'swiper/css';
   @import 'swiper/css/pagination';
 
+  /* inter-300 - latin */
   @font-face {
     font-family: 'Inter';
-    font-weight: 100 900;
-    font-display: fallback;
     font-style: normal;
-    font-named-instance: 'Regular';
-    src: url('/fonts/Inter.woff2') format('woff2');
+    font-weight: 300;
+    src: url('/fonts/inter-300.woff2') format('woff2');
+    font-display: fallback;
   }
-
+  /* inter-regular - latin */
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    src: url('/fonts/inter-regular.woff2') format('woff2');
+    font-display: fallback;
+  }
+  /* inter-500 - latin */
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    src: url('/fonts/inter-500.woff2') format('woff2');
+    font-display: fallback;
+  }
+  /* inter-600 - latin */
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    src: url('/fonts/inter-600.woff2') format('woff2');
+    font-display: fallback;
+  }
+  /* inter-700 - latin */
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    src: url('/fonts/inter-700.woff2') format('woff2');
+    font-display: fallback;
+  }
+  /* inter-800 - latin */
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 800;
+    src: url('/fonts/inter-800.woff2') format('woff2');
+    font-display: fallback;
+  }
+  /* inter-900 - latin */
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 900;
+    src: url('/fonts/inter-900.woff2') format('woff2');
+    font-display: fallback;
+  }
   /* Width */
   ::-webkit-scrollbar {
     width: 16px;
